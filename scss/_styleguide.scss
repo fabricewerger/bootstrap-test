@@ -1,0 +1,58 @@
+body {
+  font-family: $main-font;
+}
+
+// Images
+svg {
+  height: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.telNow {
+  position: absolute;
+  right: 100px;
+  top: 47px;
+  transition: 0.3s ease-in-out;
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+
+    &:hover {
+      color: $balanced;
+    }
+  }
+}
+.telNow:hover {
+  top: 44px;
+  padding-bottom: 3px;
+}
+.telNow::before {
+  content: "";
+  background-image: url("../images/icons/phoneicon.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 13px;
+  display: inline-block;
+}
+
+.hidden-for-dt {
+  font-size: 0;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.fullWidthForm {
+  width: 100% !important;
+}

@@ -1,0 +1,267 @@
+/**
+
+Button Stying
+Button classes must be written with: o-btn-[name]
+
+html should look like this, modifier is optional:
+
+<a href="#" class="o-btn o-btn--alt">
+  <span class="o-btn--hover"></span>
+  <p>Button</p>
+</a>
+
+*/
+
+// Main btn
+// Black background
+.o-btn {
+  background: $dark;
+  cursor: pointer;
+  padding: 5px 20px 5px 40px;
+  border-radius: $border-radius;
+  // @include transition;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: $light;
+  bottom: 0;
+  word-break: break-word;
+
+  p {
+    color: $light;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:before {
+    content: "";
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 13px;
+    left: 18px;
+    background: $light;
+    z-index: 2;
+  }
+
+  .o-btn--hover {
+    content: "";
+    display: block;
+    background: linear-gradient(
+      90deg,
+      rgba(131, 20, 65, 1) 0%,
+      rgba(200, 13, 15, 1) 100%
+    );
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 1;
+    // text-decoration: underline;
+    left: 0;
+    border-radius: $border-radius;
+    opacity: 0;
+  }
+
+  // On hover hide the button and show the after psuedo element
+  &:hover,
+  &:focus {
+    color: $light;
+    bottom: 0;
+    text-decoration: none;
+    padding-bottom: 5px !important;
+    background: linear-gradient(
+      90deg,
+      rgba(131, 20, 65, 1) 0%,
+      rgba(200, 13, 15, 1) 100%
+    );
+
+    .o-btn--hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Alt btn
+.o-btn--alt {
+  background: $light;
+  color: $dark;
+
+  @include transition;
+
+  &:before {
+    background: $dark;
+  }
+
+  p {
+    color: $dark;
+  }
+
+  .o-btn--hover {
+    background: #fafafa;
+  }
+
+  &:hover,
+  &:focus {
+    background: $dark;
+    color: $white;
+
+    &:before {
+      background: $white;
+    }
+  }
+}
+// gradient btn
+.o-btn--pop {
+  text-align: left;
+  background: #20bf55;
+  @include transition;
+
+  .o-btn--hover {
+    // background: linear-gradient(90deg, rgba(131,20,65,1) 0%, rgba(200,13,15,1) 100%);
+    background: $dark;
+  }
+
+  &:hover,
+  &:focus {
+    background: $dark;
+  }
+}
+
+// no bg btn
+.o-btn--nobg {
+  background: transparent;
+  @include transition;
+
+  &::before {
+    left: 0px !important;
+  }
+
+  p {
+    @include transition;
+    color: $dark;
+    padding-left: 20px;
+  }
+
+  &:before {
+    background: $dark;
+  }
+
+  &:hover,
+  &:focus {
+    background: transparent;
+
+    p {
+      color: $balanced;
+      text-decoration: underline;
+    }
+
+    &:before {
+      background: $balanced;
+    }
+  }
+
+  .o-btn--hover {
+    background: transparent;
+  }
+}
+
+.o-btn--newsletter {
+  background-color: $light;
+  border-radius: $border-radius;
+  padding: 15px 20px;
+  margin-left: 15px;
+  height: 49px;
+  color: $dark;
+  line-height: 0 !important;
+  margin-top: 1px;
+  border: 1px solid $light;
+
+  @include transition;
+
+  &:hover,
+  &:focus {
+    background-color: $balanced;
+    color: $light;
+    border: 1px solid $balanced;
+
+    @include transition;
+  }
+}
+
+// Animation effect on hover
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.o-btn:hover:before {
+  animation: bounce 0.3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+//.o-btn:focus:before {
+//  animation: bounce 0.3s;
+//  animation-direction: alternate;
+//  animation-iteration-count: infinite;
+//}
+
+// BTN
+.o-btn--red {
+  background: $light;
+
+  &:hover,
+  &:focus {
+    background: #c4c4c4 !important;
+  }
+}
+
+.o-btn--green {
+  background: #28b873;
+
+  &:hover,
+  &:focus {
+    background: #238d53 !important;
+  }
+}
+
+//btn from white to red, text black to white
+.o-btn--altred {
+  background: $light;
+  color: $dark;
+
+  @include transition;
+
+  &:before {
+    background: $dark;
+  }
+
+  p {
+    color: $dark;
+  }
+
+  .o-btn--hover {
+    background: #fafafa;
+  }
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(
+      90deg,
+      rgba(200, 13, 15, 1) 0%,
+      rgba(131, 20, 65, 1) 100%
+    );
+    color: $white;
+
+    &:before {
+      background: $white;
+    }
+  }
+}
